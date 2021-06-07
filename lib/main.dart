@@ -61,15 +61,31 @@ class _MyHomePageState extends State<MyHomePage> {
     // than having to individually change instances of widgets.
     return Scaffold(
 
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Container(
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Expanded(
+              flex: 1,
+              child: Container(
 
-            height: mediaHeight*0.1,
-            color: Colors.green,
-          )
-        ],
+                color: Colors.green,
+              ),
+            ),
+            Expanded(
+              flex: 11,
+              child: Container(
+                color: Colors.white,
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: Container(
+                color: Colors.yellow,
+              ),
+            )
+          ],
+        ),
       )
 
     );
