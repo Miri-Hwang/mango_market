@@ -103,6 +103,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   color:whiteGrey,
                   border: Border(top: BorderSide(width: 1, color: borderGrey))
                 ),
+                child: Row(
+                  children: [
+                    Column(children: [Icon(Icons.home_filled, color: darkGrey,),Text('Home',)],)
+                  ],
+                ),
               ),
             )
           ],
