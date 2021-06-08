@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'constants.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -46,19 +48,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
 
 
   @override
   Widget build(BuildContext context) {
-    var mediaHeight = MediaQuery.of(context).size.height;
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
+    
+
     return Scaffold(
 
       body: SafeArea(
@@ -69,7 +65,11 @@ class _MyHomePageState extends State<MyHomePage> {
               flex: 1,
               child: Container(
 
-                color: Colors.green,
+                decoration: BoxDecoration(
+                  color: white,
+                  border: Border(bottom: BorderSide(color: Colors.grey, width: 1))
+
+                ),
               ),
             ),
             Expanded(
