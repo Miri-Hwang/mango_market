@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                 decoration: BoxDecoration(
                   color: white,
-                  border: Border(bottom: BorderSide(color: Colors.grey, width: 1))
+                  border: Border(bottom: BorderSide(color: borderGrey, width: 1))
 
                 ),
               ),
@@ -99,7 +99,10 @@ class _MyHomePageState extends State<MyHomePage> {
             Expanded(
               flex: 1,
               child: Container(
-                color: Colors.yellow,
+                decoration: BoxDecoration(
+                  color:whiteGrey,
+                  border: Border(top: BorderSide(width: 1, color: borderGrey))
+                ),
               ),
             )
           ],
