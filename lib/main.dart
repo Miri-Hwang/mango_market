@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    
+    final PageController controller = PageController(initialPage: 0);
 
     return Scaffold(
 
@@ -74,9 +74,27 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Expanded(
               flex: 11,
-              child: Container(
-                color: Colors.white,
-              ),
+              child: PageView(
+                scrollDirection: Axis.horizontal,
+                controller: controller,
+                children: const <Widget>[
+                  Center(
+                    child: Text('First Page'),
+                  ),
+                  Center(
+                    child: Text('Second Page'),
+                  ),
+                  Center(
+                    child: Text('Third Page'),
+                  ),
+                  Center(
+                    child: Text('Fourth Page'),
+                  ),
+                  Center(
+                    child: Text('Fifth Page'),
+                  )
+                ],
+              )
             ),
             Expanded(
               flex: 1,
