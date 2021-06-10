@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
+        fontFamily: 'NotoSans',
         primarySwatch: Colors.yellow,
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
@@ -48,70 +49,113 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _selectedIndex = 0;
+  static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Business',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: School',
+      style: optionStyle,
+    ),
+  ];
 
-
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    final PageController controller = PageController(initialPage: 0);
+    // final PageController controller = PageController(initialPage: 0);
 
     return Scaffold(
-
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.business),
+            label: 'Business',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            label: 'School',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
+      ),
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Expanded(
-              flex: 1,
-              child: Container(
-
-                decoration: BoxDecoration(
-                  color: white,
-                  border: Border(bottom: BorderSide(color: borderGrey, width: 1))
-
-                ),
-              ),
-            ),
-            Expanded(
-              flex: 11,
-              child: PageView(
-                scrollDirection: Axis.horizontal,
-                controller: controller,
-                children: const <Widget>[
-                  Center(
-                    child: Text('First Page'),
-                  ),
-                  Center(
-                    child: Text('Second Page'),
-                  ),
-                  Center(
-                    child: Text('Third Page'),
-                  ),
-                  Center(
-                    child: Text('Fourth Page'),
-                  ),
-                  Center(
-                    child: Text('Fifth Page'),
-                  )
-                ],
-              )
-            ),
-            Expanded(
-              flex: 1,
-              child: Container(
-                decoration: BoxDecoration(
-                  color:whiteGrey,
-                  border: Border(top: BorderSide(width: 1, color: borderGrey))
-                ),
-                child: Row(
-                  children: [
-                    Column(children: [Icon(Icons.home_filled, color: darkGrey,),Text('Home',)],)
-                  ],
-                ),
-              ),
-            )
-          ],
+        child: Center(
+          child: _widgetOptions.elementAt(_selectedIndex),
         ),
+
+        // child: Column(
+        //   crossAxisAlignment: CrossAxisAlignment.stretch,
+        //   children: [
+        //     Expanded(
+        //       flex: 1,
+        //       child: Container(
+        //
+        //         decoration: BoxDecoration(
+        //           color: white,
+        //           border: Border(bottom: BorderSide(color: borderGrey, width: 1))
+        //
+        //         ),
+        //       ),
+        //     ),
+        //     Expanded(
+        //       flex: 11,
+        //       child: PageView(
+        //         scrollDirection: Axis.horizontal,
+        //         controller: controller,
+        //         children: const <Widget>[
+        //           Center(
+        //             child: Text('First Page'),
+        //           ),
+        //           Center(
+        //             child: Text('Second Page'),
+        //           ),
+        //           Center(
+        //             child: Text('Third Page'),
+        //           ),
+        //           Center(
+        //             child: Text('Fourth Page'),
+        //           ),
+        //           Center(
+        //             child: Text('Fifth Page'),
+        //           )
+        //         ],
+        //       )
+        //     ),
+        //     Expanded(
+        //       flex: 1,
+        //       child: Container(
+        //         decoration: BoxDecoration(
+        //           color:whiteGrey,
+        //           border: Border(top: BorderSide(width: 1, color: borderGrey))
+        //         ),
+        //         child: Row(
+        //           crossAxisAlignment: CrossAxisAlignment.center,
+        //           children: [
+        //             Column(children: [Icon(Icons.home_filled, color: darkGrey,),SizedBox(height: 2,),Text('Home',style: TextStyle(fontSize: 10),)],)
+        //           ],
+        //         ),
+        //       ),
+        //     )
+        //   ],
+        // ),
       )
 
     );
