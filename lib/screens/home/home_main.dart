@@ -12,6 +12,8 @@ class _HomeMainState extends State<HomeMain> with SingleTickerProviderStateMixin
   AnimationController _arrowAnimationController;
   Animation _arrowAnimation;
 
+
+
   @override
   void initState() {
     // TODO: implement initState
@@ -20,12 +22,10 @@ class _HomeMainState extends State<HomeMain> with SingleTickerProviderStateMixin
         AnimationController(vsync: this, duration: Duration(milliseconds: 300));
     _arrowAnimation =
         Tween<double>(begin: 0.0, end: pi).animate(_arrowAnimationController);
+
   }
-  // @override
-  // void dispose() {
-  //   super.dispose();
-  //   _animationController.dispose();
-  // }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -52,27 +52,23 @@ class _HomeMainState extends State<HomeMain> with SingleTickerProviderStateMixin
                      child: Icon(
                        Icons.arrow_drop_down,
                      ),
-                   ))
+                   )),
+
 
                   ],
                 ),
          ),
 
-            // PopupMenuButton(
-            //   child: Row(
-            //     children: [
-            //       Text('자양동',style: TextStyle(fontWeight: FontWeight.bold),
-            //       ),
-            //       Icon(Icons.arrow_drop_down)
-            //     ],
-            //   ),
-            //     itemBuilder: (context){
-            //   return List.generate(5, (index) => PopupMenuItem(child: Text('$index'),));
-            // })
+
           ],
         )),
       //ListView
       Expanded(flex:100, child:Container(color: Colors.lightGreen,))],
     );
   }
+
+
+
+
+
 }
