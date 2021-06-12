@@ -57,13 +57,22 @@ class _MyHomePageState extends State<MyHomePage> {
       style: optionStyle,
     ),
     Text(
-      'Index 1: Business',
+      'Index 1: Community',
       style: optionStyle,
     ),
     Text(
-      'Index 2: School',
+      'Index 2: Neighborhood',
       style: optionStyle,
     ),
+    Text(
+      'Index 3: Chats',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 4: My Mango',
+      style: optionStyle,
+    ),
+
   ];
 
   void _onItemTapped(int index) {
@@ -84,12 +93,22 @@ class _MyHomePageState extends State<MyHomePage> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: 'Business',
+            icon: ImageIcon(AssetImage('images/forum.png')),
+            label: 'Community',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: 'School',
+            icon: ImageIcon(AssetImage('images/location.png')),
+            label: 'Neighborhood',
+          ),
+
+          BottomNavigationBarItem(
+            icon: ImageIcon(AssetImage('images/chat.png')),
+            label: 'Chats',
+          ),
+
+          BottomNavigationBarItem(
+            icon: ImageIcon(AssetImage('images/user.png')),
+            label: 'My Mango',
           ),
         ],
         currentIndex: _selectedIndex,

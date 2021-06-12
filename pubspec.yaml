@@ -67,6 +67,10 @@ flutter:
     - family: NotoSans_Bold
       fonts:
         - asset: fonts/NotoSans-Bold.ttf
+
+
+  assets:
+    - images/
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
