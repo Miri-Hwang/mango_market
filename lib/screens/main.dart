@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'constants.dart';
+import 'home/home_main.dart';
 
 void main() {
   runApp(MyApp());
@@ -51,11 +52,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
+  static List<Widget> _widgetOptions = <Widget>[
+    HomeMain(),
     Text(
       'Index 1: Community',
       style: optionStyle,
@@ -112,7 +110,8 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.amber,
+        unselectedItemColor: Colors.lightGreen,
         onTap: _onItemTapped,
       ),
       body: SafeArea(
@@ -120,61 +119,6 @@ class _MyHomePageState extends State<MyHomePage> {
           child: _widgetOptions.elementAt(_selectedIndex),
         ),
 
-        // child: Column(
-        //   crossAxisAlignment: CrossAxisAlignment.stretch,
-        //   children: [
-        //     Expanded(
-        //       flex: 1,
-        //       child: Container(
-        //
-        //         decoration: BoxDecoration(
-        //           color: white,
-        //           border: Border(bottom: BorderSide(color: borderGrey, width: 1))
-        //
-        //         ),
-        //       ),
-        //     ),
-        //     Expanded(
-        //       flex: 11,
-        //       child: PageView(
-        //         scrollDirection: Axis.horizontal,
-        //         controller: controller,
-        //         children: const <Widget>[
-        //           Center(
-        //             child: Text('First Page'),
-        //           ),
-        //           Center(
-        //             child: Text('Second Page'),
-        //           ),
-        //           Center(
-        //             child: Text('Third Page'),
-        //           ),
-        //           Center(
-        //             child: Text('Fourth Page'),
-        //           ),
-        //           Center(
-        //             child: Text('Fifth Page'),
-        //           )
-        //         ],
-        //       )
-        //     ),
-        //     Expanded(
-        //       flex: 1,
-        //       child: Container(
-        //         decoration: BoxDecoration(
-        //           color:whiteGrey,
-        //           border: Border(top: BorderSide(width: 1, color: borderGrey))
-        //         ),
-        //         child: Row(
-        //           crossAxisAlignment: CrossAxisAlignment.center,
-        //           children: [
-        //             Column(children: [Icon(Icons.home_filled, color: darkGrey,),SizedBox(height: 2,),Text('Home',style: TextStyle(fontSize: 10),)],)
-        //           ],
-        //         ),
-        //       ),
-        //     )
-        //   ],
-        // ),
       )
 
     );
